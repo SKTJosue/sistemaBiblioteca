@@ -1,0 +1,36 @@
+<div *ngIf="isCreacion" class="card-body">
+    <div>
+        <h1 class="card-title">Crear nuev@ Autor</h1>
+    </div>
+    <form class="row g-3" [formGroup]="formAutor">
+        <div class="col-12"> 
+            <label for="inputNanme4" class="form-label">nombres</label> 
+            <input type="text" class="form-control" id="inputNanme4" formControlName="nombre">
+        </div>
+        <div class="col-12"> 
+            <label for="inputNanme4" class="form-label">apellido</label> 
+            <input type="text" class="form-control" id="inputNanme4" formControlName="apellido">
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+            <button type="submit" class="btn btn-outline-success" [disabled]="!formAutor.valid" (click)="addAutor()"> {{ isCreacion ? 'Registrar' : 'Actualizar' }}</button> 
+            <button class="btn btn-outline-danger" (click)="closeWithoutSave()"> cancelar</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="!isCreacion">
+    <div class="card-body">
+        <div>
+            <h1 class="card-title">Crear Modificar Autor</h1>
+        </div>
+        <form class="row g-3" [formGroup]="formAutorCompleto">
+            <div class="col-12"> 
+                <label for="inputNanme4" class="form-label">nombre completo del autor</label> 
+                <input type="text" class="form-control" id="inputNanme4" formControlName="nombreAutor">
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+                <button type="submit" class="btn btn-outline-success" [disabled]="!formAutorCompleto.valid" (click)="addAutor()"> {{ isCreacion ? 'Registrar' : 'Actualizar' }}</button> 
+                <button class="btn btn-outline-danger" (click)="closeWithoutSave()"> cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

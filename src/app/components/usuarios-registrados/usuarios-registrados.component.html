@@ -1,0 +1,50 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Data Tables</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Tables</li>
+             <li class="breadcrumb-item active">Data</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Usuarios</h5>
+                   <p>lista de los usuarios registrados</p>
+                   <button _ngcontent-agd-c22="" type="button" class="btn btn-success" routerLink="/usuario-crear"><span>Registrar</span><i class=" icono ri-user-add-fill"></i></button>
+                   <table class="table datatable">
+                      <thead>
+                         <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Accion</th>
+                         </tr>
+                      </thead>
+                      <tbody *ngFor="let detalles of listaUsuario ;  let i=index;" >
+                         <tr>
+                           <th scope="row">{{i+1}}</th>
+                            <th>{{detalles.name}}</th>
+                            <td>{{detalles.rol}}</td>
+                            <td>{{detalles.email}}</td>
+                            <td>
+                              <div class="espacio">
+                                 <button type="submit" class="btn btn-success" >Modificar</button>
+                                 <button type="reset" class="btn btn-danger espacio" id="cancelar" (click)="eliminar(detalles.id)" >Eliminar</button>
+                              </div>
+                           </td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

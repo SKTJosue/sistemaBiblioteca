@@ -1,0 +1,229 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Registro de libros</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Libros</li>
+             <li class="breadcrumb-item active">Registra Libro</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="car d-body">
+                
+                   <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+                        <li class="nav-item flex-fill" role="presentation"> 
+                            <button class="nav-link w-100 active" id="libro-tab" data-bs-toggle="tab" data-bs-target="#libro-justified" type="button" role="tab" aria-controls="libro" aria-selected="true">libro</button>
+                        </li>
+                        <li class="nav-item flex-fill" role="presentation"> 
+                            <button class="nav-link w-100" id="biblioteca-tab" data-bs-toggle="tab" data-bs-target="#biblioteca-justified" type="button" role="tab" aria-controls="biblioteca" aria-selected="false"  >Biblioteca</button>
+                            <!-- [disabled]="!formLibro.valid" -->
+                        </li>
+                        <li class="nav-item flex-fill" role="presentation"> 
+                            <button class="nav-link w-100" id="topicos-tab" data-bs-toggle="tab" data-bs-target="#topicos-justified" type="button" role="tab" aria-controls="topicos" aria-selected="false"  >Topicos</button>
+                            <!-- [disabled]="!formLibro.valid || !FormCatalogacion.valid" -->
+                        </li>
+                   </ul>
+                   <div class="tab-content pt-2" id="myTabjustifiedContent">
+                        <!-- are libros -->
+                        <div class="tab-pane fade show active" id="libro-justified" role="tabpanel" aria-labelledby="libro-tab"> 
+                        <div class="col-lg-12">    
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Informacio del Libro</h5>
+                                        <form class="row g-3" [formGroup]="formLibro">
+                                            <div class="col-md-6"> 
+                                                <label for="inputName5" class="form-label">Titulo Principal:</label> 
+                                                <input type="text" class="form-control" id="inputTitulo" formControlName="titulo_Principal">
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <label for="inputName5" class="form-label">Titulo Secundario:</label> 
+                                                <input type="text" class="form-control" id="inputTituloSecundario" formControlName="titulo_secundario" >
+                                            </div>
+                                            <div class="col-md-12"> 
+                                                <label for="inputEmail5" class="form-label">Idioma del Libro:</label> 
+                                                <input type="text" class="form-control" id="inputIdiomaLibro" formControlName="idioma_libro">
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <label for="inputPais5" class="form-label">Pais:</label> 
+                                                <input type="text" class="form-control" id="inputPais5" formControlName="pais">
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <label for="inputCiudad5" class="form-label">Ciudad:</label> 
+                                                <input type="text" class="form-control" id="inputCiudad5" formControlName="ciudad">
+                                            </div>
+                                            <div class="col-6   "> 
+                                                <label for="inputISBN5" class="form-label">Codigo ISBN:</label> 
+                                                <input type="text" class="form-control" id="inputISBN5" formControlName="codigo_isbn">
+                                            </div>
+                                            <div class="col-6"> 
+                                                <label for="inputAnio" class="form-label">anio publicacion:</label> 
+                                                <input type="number" class="form-control" id="inputAnio5" placeholder="2020" formControlName="anio_publicacion">
+                                            </div>
+                                            <div class="col-6"> 
+                                                <label for="inputEdicion5" class="form-label">Numero de Edicion:</label> 
+                                                <input type="number" class="form-control" id="inputEdicion5" formControlName="numero_edicion">
+                                            </div>
+                                            <div class="col-6"> 
+                                                <label for="inputPaginas" class="form-label">Numero de Paginas:</label> 
+                                                <input type="number" class="form-control" id="inputPaginas" formControlName="numero_paginas">
+                                            </div>
+                                            <!-- dimension libro -->
+                                            <!-- <div class="col-6"> 
+                                                <label for="inputDimension5" class="form-label">Dimension del Libro:</label> 
+                                                <input type="number" class="form-control" id="inputDimension5">
+                                            </div> -->
+                                            <!-- fin dimencion libro -->
+                                            <div class="col-6"> 
+                                                <label for="inputContenido" class="form-label">Descripcion del contenido:</label> 
+                                                <input type="text" class="form-control" id="inputContenido5" formControlName="contiene">
+                                            </div>
+                                            <div class="col-6"> 
+                                                <label for="inputIncluye5" class="form-label">Incluye:</label> 
+                                                <input type="text" class="form-control" id="inputIncluye5" formControlName="incluye">
+                                            </div>
+                                            <div class="col-12"> 
+                                                <label for="inputIndice" class="form-label">Indice:</label> 
+                                                <textarea type="text" class="form-control" id="inputIndice5" formControlName="indice"></textarea>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label">Topologia del Libro</label>
+                                                <select id="inputCargo" class="form-select" formControlName="topologia_libro">
+                                                    <option  value='' select > ...</option>
+                                                    <option value="Empastado" >Empastado</option>
+                                                    <option value="Anillado" >Anillado</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <label class="form-label">Tipo de Adquisicion del material</label>
+                                                <select id="inputCargo" class="form-select" formControlName="tipo_adquisicion">
+                                                    <option  value='' select > ...</option>
+                                                    <option value="Donado" >Donado</option>
+                                                    <option value="Comprado" >Comprado</option>
+                                                </select>
+                                            </div>
+                                            <div *ngIf="false">
+                                            <div class="col-6">
+                                                    <label for="imagen">Imagen:</label>
+                                                        <input type="file" class="form-control" id="imagen"  accept="image/jpeg, image/png" (change)="onFileChange($event)">
+                                                    <div class="col-6">
+                                                        <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Vista previa de la imagen" class="preview-image">
+                                                    </div>                                                
+                                                    
+                                            </div>
+                                        </div>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+                                                <button type="submit" class="btn btn-primary" (click)="irABiblioteca()" [disabled]="!formLibro.valid">siguiente</button> 
+                                            </div>
+                                            
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                      </div>
+                      <!-- end libros -->
+                      <!-- Topicos del libro -->
+                      <div class="tab-pane fade" id="topicos-justified" role="tabpanel" aria-labelledby="topicos-tab"> 
+                        <section class="section  align-items-center justify-content-center">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">    
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Topicos del Libro</h5>
+                                        <form class="row g-3" [formGroup]="formBusqueda">
+                                            <div class="col-md-12"> 
+                                                <label for="inputMateria5" class="form-label">Temas del libro</label> 
+                                                <textarea type="text" class="form-control" id="inputMateria" placeholder="ej: matematicas,lenguaje" formControlName="materia"></textarea>
+                                            </div>
+                                            <div class="col-md-12"> 
+                                                <label for="inputTopicoBusqueda" class="form-label">topicos de busqueda</label> 
+                                                <textarea type="text" class="form-control" id="inputBusqueda" placeholder="ej: numeros racionales, numeros enteros" formControlName="topicoBusqueda"></textarea>
+                                            </div>
+                                            
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <button type="submit" class="btn btn-secondary" (click)="alertaCancelar()">cancelar</button> 
+                                                <button type="submit" class="btn btn-primary" [disabled]="!formBusqueda">Enviar Datos</button> 
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                      </div>
+                      <!-- end topicos del libro -->
+                      <!-- biblioteca -->
+                      <div class="tab-pane fade" id="biblioteca-justified" role="tabpanel" aria-labelledby="biblioteca-tab"> 
+                        <section class="section  align-items-center justify-content-center">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">    
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Informacio de la Biblioteca</h5>
+                                        <form [formGroup]="FormCatalogacion" class="row g-3">
+                                            <div class="col-md-4"> 
+                                                <label for="inputCodInventario" class="form-label">Numero de inventario</label> 
+                                                <input type="number" class="form-control" id="inputCodInventario5" formControlName="inventario">
+                                            </div>
+                                            <div class="col-md-4"> 
+                                                <label for="inputCodLibro" class="form-label">Codigo Del Libro</label> 
+                                                <input type="text" class="form-control" id="inputCodLibro" formControlName="codigoLibro">
+                                            </div>
+                                            <div class="col-md-4"> 
+                                                <label for="inputCodAutor" class="form-label">Codigo de Autor</label> 
+                                                <input type="text" class="form-control" id="inputCodAutor" formControlName="codigoAutor">
+                                            </div>
+                                            <div class="col-4"> 
+                                                <label  class="form-label">Tomo:</label> 
+                                                <input type="number" class="form-control" id="inputTomo5" formControlName="tomo">
+                                            </div>
+                                            <div class="col-4"> 
+                                                <label for="inputVolumen" class="form-label">Volumen:</label> 
+                                                <input type="number" class="form-control" id="inputVolumen2" formControlName="volumen">
+                                            </div>
+                                            <div class="col-4"> 
+                                                <label for="inputEjemplar" class="form-label">Ejemplar:</label> 
+                                                <input type="number" class="form-control" id="inputEjemplar2" formControlName="ejemplar">
+                                            </div>
+                                        </form>
+                                        <form [formGroup]="formAutor" (ngSubmit)="submit()">
+                                            <div class="col-4"> 
+                                                <label for="inputCity" class="form-label">Autor:</label> 
+                                                <ng-select [items]="autorAux" bindLabel="nombreAutor" 
+                                                bindValue="nombreAutor" [multiple]="true" [addTag]="true" formControlName="nombreAutor">
+                                                </ng-select>
+                                                <button type="submit">Save</button>
+                                            </div>
+                                            <form [formGroup]="formEditorial" >    
+                                                <div class="col-4"> 
+                                                    <label for="inputCity" class="form-label">Editorial:</label> 
+                                                    <ng-select [items]="editorial" bindLabel="nombreEditorial" 
+                                                bindValue="nombreEditorial" [multiple]="false" [addTag]="true" formControlName="nombreEditorial">
+                                                </ng-select>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+                                                    <button type="submit" class="btn btn-primary" (click)="irATopicos()" [disabled]="((!FormCatalogacion.valid) || (!formAutor.valid || !formEditorial.valid))">Siguiente</button> 
+                                                    
+                                                </div>
+                                            </form>
+                                        </form>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                      </div>
+                      <!-- end biblioteca -->
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>
