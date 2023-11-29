@@ -1,0 +1,26 @@
+
+.card-body{
+    background-color:#003264;
+    color: white;
+    border-radius: 1.5rem;
+}
+.card-title{
+    color: white;
+}
+.logo img {
+    max-height: 100px;
+}
+.input-group-icon {
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 0.35rem;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
