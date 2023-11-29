@@ -1,0 +1,30 @@
+<!-- <div style="width: 100%; height: 50px; margin-top: 1%; text-align: center" class="text-dark bg-light rounded">
+    <h1 class="font-weight-bold">NUEVO CURSO</h1>
+  </div>
+  
+  <mat-dialog-content>
+    <div class="container" style="margin-top: 5%">
+     Nombre de la editorial:
+        <input type="text" class="form-control" placeholder="Titulo">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="button" class="btn btn-light" (click)="closeWithoutSave()">Close</button>
+    <button  style="margin-left: 5%" type="button" class="btn btn-dark">Save</button>
+  </mat-dialog-actions> -->
+    <div class="card-body">
+        <div>
+            <h1 class="card-title">Crear nueva Editorial</h1>
+        </div>
+        <form class="row g-3" [formGroup]="formEditorial">
+            <div class="col-12"> 
+                <label for="inputNanme4" class="form-label">nombre de la editorial</label> 
+                <input type="text" class="form-control" id="inputNanme4" formControlName="nombreEditorial">
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+                <button type="submit" class="btn btn-outline-success" [disabled]="!formEditorial.valid" (click)="addEditorial()"> {{ isCreacion ? 'Registrar' : 'Actualizar' }}</button> 
+                <button class="btn btn-outline-danger" (click)="closeWithoutSave()"> cancelar</button>
+            </div>
+        </form>
+    </div>
+    

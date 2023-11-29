@@ -1,0 +1,56 @@
+
+ <main id="main" class="main">
+    <div class="pagetitle">
+       <div class="pagetitle">
+          <h1>Data Tables</h1>
+          <nav>
+             <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+             </ol>
+          </nav>
+       </div>
+       <section>
+          <div class="col-lg-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Autor</h5>
+                   <p>lista de las Autoridades registrados</p>
+                   <section>
+                      <button _ngcontent-agd-c22="" type="button" class="btn btn-success" (click)="openRegistroAutorDialog(true)"><span>Registrar</span><i class=" icono ri-user-add-fill"></i></button>
+                   </section>
+                   <div class="mat-typography mat-app-background">
+                   <div class="mat-elevation-z8 ">
+                      <table mat-table [dataSource]="dataSource" >
+                         <ng-container matColumnDef="Numero">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element; let i = index"> {{paginator.pageIndex * paginator.pageSize + i + 1}} </td>
+                         </ng-container>
+                         <ng-container matColumnDef="NombreAutor" >
+                            <th mat-header-cell *matHeaderCellDef> Nombre del autor </th>
+                            <td mat-cell *matCellDef="let element in"> {{element.nombreAutor}} </td>
+                         </ng-container>
+                         <ng-container matColumnDef="accion">
+                            <th mat-header-cell *matHeaderCellDef> accion </th>
+                            <td mat-cell *matCellDef="let element"><button type="submit" class="btn btn-success" (click)="openRegistroAutorDialog(false,element.id)">Modificar</button>
+                               <button type="reset" class="btn btn-danger espacio" id="cancelar" (click)="eliminar(element.id)" >Eliminar</button> </td>
+                         </ng-container>
+                      
+                      
+                         <tr mat-header-row *matHeaderRowDef="['Numero', 'NombreAutor', 'accion']"></tr>
+                         <tr mat-row *matRowDef="let row; columns: ['Numero', 'NombreAutor', 'accion']"></tr>
+                      </table>
+                      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                     showFirstLastButtons
+                                     aria-label="Select page of periodic elements"
+                                     #paginator>
+                      </mat-paginator>
+                   </div>
+                </div>
+             </div>
+          </div>
+          </div>
+    </section>
+    </div>
+    </main>

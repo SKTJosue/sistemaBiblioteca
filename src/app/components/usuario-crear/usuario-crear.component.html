@@ -1,0 +1,95 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <h1>Creacion de usuario</h1>
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Usuarios</li>
+             <li class="breadcrumb-item active">Crear Usuario</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">       
+                        <div class="card-body">
+                           <h5 class="card-title">Registrar Usuarios</h5>
+                           <form [formGroup]="formUsuario" class="row g-3" >
+                              <div class="col-md-4"> <label for="inputName5" class="form-label">Nombre</label> 
+                                 <input type="text" class="form-control" id="inputName5" formControlName="name" >
+                                 <div >
+                                 <div *ngIf="formUsuario.controls['name'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['name'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">solo se permite letras<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                    <div *ngIf="formUsuario.controls['name'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                 </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4"> <label for="inputApellidoP5" class="form-label">Apellido Paterno</label> <input type="text" class="form-control" id="inputApellidoP5" formControlName="apellidoP">
+                                 <div *ngIf="formUsuario.controls['apellidoP'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['apellidoP'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">solo se permite letras</div>
+                                    <div *ngIf="formUsuario.controls['apellidoP'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>   
+                              <div class="col-md-4"> <label for="inputApellidoM5" class="form-label">Apellido Materno</label> <input type="text" class="form-control" id="inputApellidoM5" formControlName="apellidoM">
+                                 <div *ngIf="formUsuario.controls['apellidoM'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['apellidoM'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">solo se permite letras</div>
+                                    <div *ngIf="formUsuario.controls['apellidoM'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>   
+                              <div class="col-md-12"> <label for="inputEmail5" class="form-label">Email</label> 
+                                 <input type="email" class="form-control" id="inputEmail5" formControlName="email">
+                                 <div *ngIf="formUsuario.controls['email'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['email'].errors['email']" class="alert alert-warning alert-dismissible fade show" role="alert">debe introducir un correo</div>
+                                    <div *ngIf="formUsuario.controls['email'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">el campo esta empezando con espacio</div>
+                                    <div *ngIf="formUsuario.controls['email'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>
+                                 
+                              <div class="col-md-6"> <label for="inputPassword5" class="form-label">Password</label> 
+                                 <input type="password" class="form-control" id="inputPassword5" formControlName="password" required>
+                                 <div *ngIf="formUsuario.controls['password'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['password'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">solo se permite letras</div>
+                                    <div *ngIf="formUsuario.controls['password'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                    <div *ngIf="formUsuario.controls['password'].errors['minLength']" class="alert alert-danger alert-dismissible fade show" role="alert">su contrasenia debe ser de menos 8 digitos</div>
+                                 </div>
+                              </div>
+                              
+                              <div class="col-md-6"> <label for="inputPassword5" class="form-label">Confirmar Password</label> <input type="password" class="form-control" id="inputPassword5" formControlName="password_confirmation">
+                                 <div *ngIf="formUsuario.controls['password_confirmation'].errors" class="error" >
+                                    <div *ngIf="formUsuario.controls['password_confirmation'].errors['pattern']" class="alert alert-warning alert-dismissible fade show" role="alert">solo se permite letras</div>
+                                    <div *ngIf="formUsuario.controls['password_confirmation'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                    <div *ngIf="formUsuario.controls['password_confirmation'].errors['minLength']" class="alert alert-danger alert-dismissible fade show" role="alert">debe introducir al menos 8 digitos</div>
+                                 </div>
+                                 <div *ngIf="formUsuario.controls.password_confirmation.value != formUsuario.controls.password.value
+                                 ">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">debe coincidir al password</div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputCargo" class="form-label">Cargo</label> 
+                                <select id="inputCargo" class="form-select" formControlName="rol">
+                                 
+                                   <option  value='' select > ...</option>
+                                    <option value="Administrador" >Administrativo</option>
+                                   <option value="Docente" >Docente</option>
+                                   <option value="Bibliotecario">Bibliotecario</option>
+                                </select>
+                                <div *ngIf="formUsuario.controls['rol'].errors" class="error" >
+                                 <div *ngIf="formUsuario.controls['rol'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe elegir un cargo</div>
+                                </div>
+                             </div>
+                             
+                              <div class="text-center"> 
+                                 <button type="submit" class="btn btn-primary" [disabled]="((!formUsuario.valid)||formUsuario.controls.password_confirmation.value != formUsuario.controls.password.value)" (click)="onSubmit(formUsuario.value)">{{data? 'Crear':'Guardar'}}</button>
+                                 
+                                 <button type="reset" class="btn btn-secondary espacio" id="cancelar" (click)="cancelar()">Cancelar</button></div>
+                                 
+                           </form>
+                        </div>
+                     </div>    
+                </div>
+            </div>
+         
+    </section>
+</main>

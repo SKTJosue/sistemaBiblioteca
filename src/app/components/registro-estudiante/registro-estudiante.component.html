@@ -1,0 +1,49 @@
+
+                           <h5 class="card-title">Registror Del Estudiante</h5>
+                           <form [formGroup]="formEstudiante" class="row g-3" >
+                              <div class="col-md-6"> <label for="inputName5" class="form-label">Nombre del Estudiante</label> 
+                                 <input type="text" class="form-control" id="inputName5" formControlName="nombre" >
+                                 <div >
+                                 <div *ngIf="formEstudiante.controls['nombre'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['nombre'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                 </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6"> <label for="inputApellidoP5" class="form-label">Apellidos del estudiante</label> 
+                                <input type="text" class="form-control" id="inputApellidoP5" formControlName="apellido">
+                                 <div *ngIf="formEstudiante.controls['apellido'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['apellido'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>   
+                              <div class="col-md-6"> 
+                                <label for="inputApellidoM5" class="form-label">numero de Celular del Estudiante</label> 
+                                <input type="number" class="form-control" id="inputnumeroEstudiante" formControlName="numeroCelular">
+                                 <div *ngIf="formEstudiante.controls['numeroCelular'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['numeroCelular'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>   
+                              <div class="col-md-6"> <label for="inputTutor5" class="form-label">Nombre del Tutor a cargo</label> 
+                                 <input type="email" class="form-control" id="inputTutor" formControlName="nombreTutor">
+                                 <div *ngIf="formEstudiante.controls['nombreTutor'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['nombreTutor'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>
+                                 
+                              <div class="col-md-6"> <label for="inputApellidoTutor5" class="form-label">Apellido del Tutor</label> 
+                                 <input type="text" class="form-control" id="inputApellidoTutor5" formControlName="apellidoTutor" required>
+                                 <div *ngIf="formEstudiante.controls['apellidoTutor'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['apellidoTutor'].errors['required']" class="alert alert-danger alert-dismissible fade show" role="alert">debe llenar el campo</div>
+                                 </div>
+                              </div>
+                              
+                              <div class="col-md-6"> <label for="inputnumeroTutor5" class="form-label">numero de contacto del tutor</label> 
+                                <input type="number" class="form-control" id="inputNumeroTutor5" formControlName="numeroCelularTutor">
+                                 <div *ngIf="formEstudiante.controls['numeroCelularTutor'].errors" class="error" >
+                                    <div *ngIf="formEstudiante.controls['numeroCelularTutor'].errors['minLength']" class="alert alert-danger alert-dismissible fade show" role="alert">debe introducir al menos 8 digitos</div>
+                                 </div>
+                              </div>
+                              <div class="text-center"> 
+                                 <button type="submit" class="btn btn-primary" [disabled]="(!formEstudiante.valid)" (click)="addEstudiante()">{{isCreacion? 'Registrar':'Actualizar'}}</button>                         
+                                 <button type="button" class="btn btn-secondary espacio" id="cancelar" (click)="closeWithoutSave()">Cancelar</button></div>
+                                 
+                           </form>
